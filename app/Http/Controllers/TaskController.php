@@ -34,8 +34,11 @@ class TaskController extends Controller
 
     public function update(Request $request, Task $task)
     {
-        $task->completed = $request->completed;
+
+        $task->completed = !$task->completed;
+
         $task->save();
         return redirect('/tasks');
     }
+
 }
